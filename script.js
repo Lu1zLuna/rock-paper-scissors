@@ -72,7 +72,7 @@ function playGame() {
             computerScore++;
             console.log(loseMessage);
         }
-        // In case of a tie
+        // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
             console.log(tieMessage);
 
