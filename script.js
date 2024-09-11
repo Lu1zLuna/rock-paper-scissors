@@ -46,22 +46,30 @@ function playGame() {
         let tieMessage = `It's a tie! You both chose ${humanChoice} for this round.`;
 
         // Human wins the round
-        if (
-            (humanChoice === "Rock" && computerChoice === "Scissors") ||
-            (humanChoice === "Paper" && computerChoice === "Rock") ||
-            (humanChoice === "Scissors" && computerChoice === "Paper")
-        ) {
+        if (humanChoice === "Rock" && computerChoice === "Scissors") {
+            humanScore++;
+            console.log(winMessage);
+        }
+        else if (humanChoice === "Paper" && computerChoice === "Rock") {
+            humanScore++;
+            console.log(winMessage);
+        }
+        else if (humanChoice === "Scissors" && computerChoice === "Paper") {
             humanScore++;
             console.log(winMessage);
         }
         // Computer win the round
-        else if (
-            (computerChoice === "Rock" && humanChoice === "Scissors") ||
-            (computerChoice === "Paper" && humanChoice === "Rock") ||
-            (computerChoice === "Scissors" && humanChoice === "Paper")
-        ) {
+        else if (computerChoice === "Rock" && humanChoice === "Scissors") {
             computerScore++;
             console.log(winMessage);
+        }
+        else if (computerChoice === "Paper" && humanChoice === "Rock") {
+            computerScore++;
+            console.log(loseMessage);
+        }
+        else if (computerChoice === "Scissors" && humanChoice === "Paper") {
+            computerScore++;
+            console.log(loseMessage);
         }
         // In case of a tie
         else if (computerChoice == humanChoice) {
