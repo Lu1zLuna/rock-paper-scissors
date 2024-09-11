@@ -1,4 +1,5 @@
-// Randomly returns one of the following string values: “rock”, “paper” or “scissors”
+// Randomly returns one of the following string values:
+// “rock”, “paper” or “scissors”
 function getComputerChoice() {
     let computerChoice = Math.random();
 
@@ -95,7 +96,8 @@ function playGame() {
     }
     else if (computerScore > humanScore) {
         console.log(
-            `Oh no! You lost the game. The final score is: ${humanScore} to ${computerScore}`
+            `Oh no! You lost the game. The final score is: 
+            ${humanScore} to ${computerScore}`
         );
     }
     else {
