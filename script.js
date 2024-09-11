@@ -36,6 +36,9 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    let humanSelection;
+    let computerSelection;
+
     // Plays a single round
     function playRound(humanChoice, computerChoice) {
         let winMessage = `You win! ${humanChoice} beats ${computerChoice}`;
@@ -69,9 +72,6 @@ function playGame() {
             playRound(humanSelection, computerSelection);
         }
     }
-
-    let humanSelection;
-    let computerSelection;
 
     // A game consists in 5 rounds
     for (i = 1; i <= 5; i++) {
