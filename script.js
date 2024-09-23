@@ -90,6 +90,23 @@ function playGame() {
         }
     }
 
+    function showGameResult() {
+        if (humanScore > computerScore) {
+            console.log(`Congratulations! You won the game!
+                    The final score is: ${humanScore} to ${computerScore}`);
+        }
+        else if (computerScore > humanScore) {
+            console.log(
+                `Oh no! You lost the game. The final score is: 
+            ${humanScore} to ${computerScore}`
+            );
+        }
+        else {
+            console.log(`Good game! You tied! Challenge the computer again for a tiebreak! ;)
+            The final score is: ${humanScore} to ${computerScore}`);
+        }
+    }
+
     // A game consists in 5 rounds
     // for (i = 1; i <= 5; i++) {
     //     humanSelection = getHumanChoice();
@@ -127,23 +144,6 @@ function playGame() {
     containerButton.appendChild(rockButton);
     containerButton.appendChild(paperButton);
     containerButton.appendChild(scissorsButton);
-
-    function showGameResult() {
-        if (humanScore > computerScore) {
-            console.log(`Congratulations! You won the game!
-                    The final score is: ${humanScore} to ${computerScore}`);
-        }
-        else if (computerScore > humanScore) {
-            console.log(
-                `Oh no! You lost the game. The final score is: 
-            ${humanScore} to ${computerScore}`
-            );
-        }
-        else {
-            console.log(`Good game! You tied! Challenge the computer again for a tiebreak! ;)
-            The final score is: ${humanScore} to ${computerScore}`);
-        }
-    }
 
     showGameResult();
 
