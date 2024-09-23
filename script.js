@@ -50,10 +50,6 @@ function playGame() {
 
     // Plays a single round
     function playRound(humanChoice, computerChoice) {
-        //let winMessage = `You win! ${humanChoice} beats ${computerChoice}`;
-        let loseMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
-        let tieMessage = "It's a tie! You both chose ${humanChoice} for this round." +
-            "\nPlay again for a tie-break ;D";
 
         const resultsContainer = document.querySelector("#container.results");
 
@@ -63,10 +59,16 @@ function playGame() {
             (humanChoice === "Paper" && computerChoice === "Rock") ||
             (humanChoice === "Scissors" && computerChoice === "Paper")
         ) {
-            humanScore++;
             const winMessage = document.createElement("p");
             winMessage.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             resultsContainer.appendChild(winMessage);
+
+            humanScore++;
+            let scoreMessage = "The current score is: " + humanScore +
+                " (to you) X " + computerScore + " (to the computer).";
+            const runningScore = document.createElement("p");
+            runningScore.textContent = scoreMessage;
+            resultsContainer.appendChild(runningScore);
         }
         // Computer win the round
         else if (
@@ -74,10 +76,16 @@ function playGame() {
             (computerChoice === "Paper" && humanChoice === "Rock") ||
             (computerChoice === "Scissors" && humanChoice === "Paper")
         ) {
-            computerScore++;
             const loseMessage = document.createElement("p");
             loseMessage.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
             resultsContainer.appendChild(loseMessage);
+
+            computerScore++;
+            let scoreMessage = "The current score is: " + humanScore +
+                " (to you) X " + computerScore + " (to the computer).";
+            const runningScore = document.createElement("p");
+            runningScore.textContent = scoreMessage;
+            resultsContainer.appendChild(runningScore);
         }
         // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
@@ -85,6 +93,12 @@ function playGame() {
             tieMessage.textContent = "It's a tie! You both chose " + humanChoice + " for this round."
                 + "\nPlay again for a tie-break ;D";
             resultsContainer.appendChild(tieMessage);
+
+            let scoreMessage = "The current score is: " + humanScore +
+                " (to you) X " + computerScore + " (to the computer).";
+            const runningScore = document.createElement("p");
+            runningScore.textContent = scoreMessage;
+            resultsContainer.appendChild(runningScore);
         }
     }
 
