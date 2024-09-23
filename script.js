@@ -50,40 +50,41 @@ function playGame() {
 
     // Plays a single round
     function playRound(humanChoice, computerChoice) {
-        let winMessage = `You win! ${humanChoice} beats ${computerChoice}`;
+        //let winMessage = `You win! ${humanChoice} beats ${computerChoice}`;
         let loseMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
         let tieMessage = "It's a tie! You both chose ${humanChoice} for this round." +
             "\nPlay again for a tie-break ;D";
 
+        const resultsContainer = document.querySelector("#container.results");
+
         // Human wins the round
-        if (humanChoice === "Rock" && computerChoice === "Scissors") {
+        if (
+            (humanChoice === "Rock" && computerChoice === "Scissors") ||
+            (humanChoice === "Paper" && computerChoice === "Rock") ||
+            (humanChoice === "Scissors" && computerChoice === "Paper")
+        ) {
             humanScore++;
-            console.log(winMessage);
-        }
-        else if (humanChoice === "Paper" && computerChoice === "Rock") {
-            humanScore++;
-            console.log(winMessage);
-        }
-        else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-            humanScore++;
-            console.log(winMessage);
+            const winMessage = document.createElement("p");
+            winMessage.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
+            resultsContainer.appendChild(winMessage);
         }
         // Computer win the round
-        else if (computerChoice === "Rock" && humanChoice === "Scissors") {
+        else if (
+            (computerChoice === "Rock" && humanChoice === "Scissors") ||
+            (computerChoice === "Paper" && humanChoice === "Rock") ||
+            (computerChoice === "Scissors" && humanChoice === "Paper")
+        ) {
             computerScore++;
-            console.log(winMessage);
-        }
-        else if (computerChoice === "Paper" && humanChoice === "Rock") {
-            computerScore++;
-            console.log(loseMessage);
-        }
-        else if (computerChoice === "Scissors" && humanChoice === "Paper") {
-            computerScore++;
-            console.log(loseMessage);
+            const loseMessage = document.createElement("p");
+            loseMessage.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+            resultsContainer.appendChild(loseMessage);
         }
         // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
-            console.log(tieMessage);
+            const tieMessage = document.createElement("p");
+            tieMessage.textContent = "It's a tie! You both chose " + humanChoice + " for this round."
+                + "\nPlay again for a tie-break ;D";
+            resultsContainer.appendChild(tieMessage);
         }
     }
 
@@ -112,7 +113,7 @@ function playGame() {
     //     playRound(humanSelection, computerSelection);
     // }
 
-    const containerButton = document.querySelector("#container-button");
+    const containerButton = document.querySelector("#container.buttons");
 
     const rockButton = document.createElement("button");
     rockButton.textContent = "Rock";
@@ -142,7 +143,7 @@ function playGame() {
     containerButton.appendChild(paperButton);
     containerButton.appendChild(scissorsButton);
 
-    showGameResult();
+    //showGameResult();
 
 }
 
