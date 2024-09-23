@@ -91,12 +91,42 @@ function playGame() {
     }
 
     // A game consists in 5 rounds
-    for (i = 1; i <= 5; i++) {
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
+    // for (i = 1; i <= 5; i++) {
+    //     humanSelection = getHumanChoice();
+    //     computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
-    }
+    //     playRound(humanSelection, computerSelection);
+    // }
+
+    const containerButton = document.querySelector("#container-button");
+
+    const rockButton = document.createElement("button");
+    rockButton.textContent = "Rock";
+
+    const paperButton = document.createElement("button");
+    paperButton.textContent = "Paper";
+
+    const scissorsButton = document.createElement("button");
+    scissorsButton.textContent = "Scissors";
+
+    rockButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        playRound(rockButton.textContent, computerSelection);
+    });;
+
+    paperButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        playRound(paperButton.textContent, computerSelection);
+    });;
+
+    scissorsButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        playRound(scissorsButton.textContent, computerSelection);
+    });;
+
+    containerButton.appendChild(rockButton);
+    containerButton.appendChild(paperButton);
+    containerButton.appendChild(scissorsButton);
 
     function showGameResult() {
         if (humanScore > computerScore) {
@@ -118,5 +148,7 @@ function playGame() {
     showGameResult();
 
 }
+
+
 
 playGame();
