@@ -52,7 +52,8 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         let winMessage = `You win! ${humanChoice} beats ${computerChoice}`;
         let loseMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
-        let tieMessage = `It's a tie! You both chose ${humanChoice} for this round.`;
+        let tieMessage = "It's a tie! You both chose ${humanChoice} for this round." +
+            "\nPlay again for a tie-break ;D";
 
         // Human wins the round
         if (humanChoice === "Rock" && computerChoice === "Scissors") {
@@ -83,10 +84,6 @@ function playGame() {
         // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
             console.log(tieMessage);
-
-            humanSelection = getHumanChoice();
-            computerSelection = getComputerChoice();
-            playRound(humanSelection, computerSelection);
         }
     }
 
