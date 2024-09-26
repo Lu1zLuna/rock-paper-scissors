@@ -64,11 +64,6 @@ function playGame() {
             resultsContainer.appendChild(winMessage);
 
             humanScore++;
-            let scoreMessage = "The current score is: " + humanScore +
-                " (to you) X " + computerScore + " (to the computer).";
-            const runningScore = document.createElement("p");
-            runningScore.textContent = scoreMessage;
-            resultsContainer.appendChild(runningScore);
         }
         // Computer win the round
         else if (
@@ -81,11 +76,6 @@ function playGame() {
             resultsContainer.appendChild(loseMessage);
 
             computerScore++;
-            let scoreMessage = "The current score is: " + humanScore +
-                " (to you) X " + computerScore + " (to the computer).";
-            const runningScore = document.createElement("p");
-            runningScore.textContent = scoreMessage;
-            resultsContainer.appendChild(runningScore);
         }
         // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
@@ -93,13 +83,13 @@ function playGame() {
             tieMessage.textContent = "It's a tie! You both chose " + humanChoice + " for this round."
                 + "\nPlay again for a tie-break ;D";
             resultsContainer.appendChild(tieMessage);
-
-            let scoreMessage = "The current score is: " + humanScore +
-                " (to you) X " + computerScore + " (to the computer).";
-            const runningScore = document.createElement("p");
-            runningScore.textContent = scoreMessage;
-            resultsContainer.appendChild(runningScore);
         }
+
+        let scoreMessage = "The current score is: " + humanScore +
+            " (to you) X " + computerScore + " (to the computer).";
+        const runningScore = document.createElement("p");
+        runningScore.textContent = scoreMessage;
+        resultsContainer.appendChild(runningScore);
     }
 
     function showGameResult() {
@@ -120,12 +110,12 @@ function playGame() {
     }
 
     // A game consists in 5 rounds
-    // for (i = 1; i <= 5; i++) {
-    //     humanSelection = getHumanChoice();
-    //     computerSelection = getComputerChoice();
+    for (i = 1; i <= 5; i++) {
+        //     humanSelection = getHumanChoice();
+        //     computerSelection = getComputerChoice();
 
-    //     playRound(humanSelection, computerSelection);
-    // }
+        //     playRound(humanSelection, computerSelection);
+    }
 
     const containerButton = document.querySelector("#container.buttons");
 
@@ -160,7 +150,5 @@ function playGame() {
     //showGameResult();
 
 }
-
-
 
 playGame();
