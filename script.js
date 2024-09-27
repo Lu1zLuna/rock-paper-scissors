@@ -123,12 +123,15 @@ function playGame() {
 
     const rockButton = document.createElement("button");
     rockButton.textContent = "Rock";
+    rockButton.setAttribute("style", "padding: 10px 15px");
 
     const paperButton = document.createElement("button");
     paperButton.textContent = "Paper";
+    paperButton.setAttribute("style", "padding: 10px 15px");
 
     const scissorsButton = document.createElement("button");
     scissorsButton.textContent = "Scissors";
+    scissorsButton.setAttribute("style", "padding: 10px 15px");
 
     containerButton.appendChild(rockButton);
     containerButton.appendChild(paperButton);
