@@ -20,6 +20,27 @@
     background-color: antiquewhite;
 }
 
+/* Flexbox setup for body */
+body {
+    display: flex;              /* Enable Flexbox for the body */
+    flex-direction: column;     /* Stack children vertically */
+    align-items: center;        /* Center items horizontally */
+}
+
+#results {
+    display: flex;               /* Enable Flexbox inside #results */
+    flex-direction: column;      /* Stack contents in a column */
+    justify-content: center;      /* Center contents vertically */
+    align-items: center;         /* Center contents horizontally */
+    width: 100%;                 /* Optional: Set a width */
+    padding: 20px;              /* Optional: Add padding */
+}
+
+#buttons {
+    display: flex;
+    gap: 20px;
+}
+
 #rock, #paper, #scissors {
     padding: 15px 20px;
     background-color: rgb(43, 250, 215);
@@ -27,3 +48,12 @@
     font-size: large;
     font-weight: bold;
 }
+
+#results {
+    display: flex;
+    justify-content: center;  /* Center content inside #results */
+    align-items: center;      /* Center content vertically if needed */
+    width: 100%;              /* Optional: Set a width */
+    padding: 20px;           /* Optional: Add padding */
+}
+    
