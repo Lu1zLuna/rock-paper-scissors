@@ -90,33 +90,35 @@ function playGame() {
         const runningScore = document.createElement("p");
         runningScore.textContent = scoreMessage;
         resultsContainer.appendChild(runningScore);
+
+        const lineBreak = document.createElement("p");
+        lineBreak.textContent = "---------------------------------------------";
+        resultsContainer.appendChild(lineBreak);
     }
 
     function showGameResult() {
+        const body = document.querySelector("body");
+
+        const finalMessage = document.createElement("p");
+
         if (humanScore > computerScore) {
-            console.log(`Congratulations! You won the game!
-                    The final score is: ${humanScore} to ${computerScore}`);
+            finalMessage.textContent = `Congratulations! You won the game!
+                The final score is: ${humanScore} to ${computerScore}`;
         }
         else if (computerScore > humanScore) {
-            console.log(
-                `Oh no! You lost the game. The final score is: 
-            ${humanScore} to ${computerScore}`
-            );
+            finalMessage.textContent = `Oh no! You lost the game. The final score is: 
+            ${humanScore} to ${computerScore}`;
         }
         else {
-            console.log(`Good game! You tied! Challenge the computer again for a tiebreak! ;)
-            The final score is: ${humanScore} to ${computerScore}`);
+            finalMessage.textContent = "Good game! You tied! Challenge " +
+                "the computer again for a tiebreak! ;)\n" +
+                "The final score is: " + humanScore + " to " + computerScore;
         }
+
+        body.appendChild(finalMessage);
     }
 
-    // A game consists in 5 rounds
-    for (i = 1; i <= 5; i++) {
-        //     humanSelection = getHumanChoice();
-        //     computerSelection = getComputerChoice();
-
-        //     playRound(humanSelection, computerSelection);
-    }
-
+    // Create buttons for player to interact with
     const containerButton = document.querySelector("#container.buttons");
 
     const rockButton = document.createElement("button");
@@ -128,27 +130,39 @@ function playGame() {
     const scissorsButton = document.createElement("button");
     scissorsButton.textContent = "Scissors";
 
-    rockButton.addEventListener("click", function () {
-        computerSelection = getComputerChoice();
-        playRound(rockButton.textContent, computerSelection);
-    });;
-
-    paperButton.addEventListener("click", function () {
-        computerSelection = getComputerChoice();
-        playRound(paperButton.textContent, computerSelection);
-    });;
-
-    scissorsButton.addEventListener("click", function () {
-        computerSelection = getComputerChoice();
-        playRound(scissorsButton.textContent, computerSelection);
-    });;
-
     containerButton.appendChild(rockButton);
     containerButton.appendChild(paperButton);
     containerButton.appendChild(scissorsButton);
 
-    //showGameResult();
+    rockButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        if (humanScore < 5 && computerScore < 5) {
+            playRound(scissorsButton.textContent, computerSelection);
+        }
+        else if (humanScore >= 5 || computerScore >= 5) {
+            return showGameResult();
+        }
+    });
 
+    paperButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        if (humanScore < 5 && computerScore < 5) {
+            playRound(scissorsButton.textContent, computerSelection);
+        }
+        else if (humanScore >= 5 || computerScore >= 5) {
+            return showGameResult();
+        }
+    });
+
+    scissorsButton.addEventListener("click", function () {
+        computerSelection = getComputerChoice();
+        if (humanScore < 5 && computerScore < 5) {
+            playRound(scissorsButton.textContent, computerSelection);
+        }
+        else if (humanScore >= 5 || computerScore >= 5) {
+            return showGameResult();
+        }
+    });
 }
 
 playGame();
