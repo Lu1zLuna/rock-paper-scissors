@@ -119,19 +119,11 @@ function playGame() {
     }
 
     // Create buttons for player to interact with
-    const containerButton = document.querySelector("#container.buttons");
+    const containerButton = document.querySelector("#buttons.container");
 
-    const rockButton = document.createElement("button");
-    rockButton.textContent = "Rock";
-    rockButton.setAttribute("style", "padding: 10px 15px");
-
-    const paperButton = document.createElement("button");
-    paperButton.textContent = "Paper";
-    paperButton.setAttribute("style", "padding: 10px 15px");
-
-    const scissorsButton = document.createElement("button");
-    scissorsButton.textContent = "Scissors";
-    scissorsButton.setAttribute("style", "padding: 10px 15px");
+    const rockButton = document.querySelector("#rock");
+    const paperButton = document.querySelector("#paper");
+    const scissorsButton = document.querySelector("#scissors");
 
     containerButton.appendChild(rockButton);
     containerButton.appendChild(paperButton);

@@ -9,11 +9,11 @@
     padding: 0;
 }
 
-#container.buttons {
+#buttons.container {
     display: flex;
 }
 
-.buttons {
+#buttons {
     padding: 12px;
     justify-content: space-around;
     flex-grow: 1;
