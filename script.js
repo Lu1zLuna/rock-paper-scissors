@@ -14,32 +14,6 @@ function getComputerChoice() {
     }
 }
 
-// Gets the player input
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper or scissors?");
-    humanChoice = humanChoice.toLowerCase();
-
-    // continues to prompt user if his choice is not between valid values
-    let isHumanChoiceValid = VerifyHumanChoice(humanChoice);
-
-    while (isHumanChoiceValid === -1) {
-        humanChoice = prompt(
-            'Please, choose between "rock", "paper" or "scissors":'
-        );
-        humanChoice = humanChoice.toLowerCase();
-        isHumanChoiceValid = VerifyHumanChoice(humanChoice);
-    }
-
-    humanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1);
-
-    return humanChoice;
-
-    // Returns the index of the array if choice is valid, or -1 if not
-    function VerifyHumanChoice(humanChoice) {
-        return ["rock", "paper", "scissors"].indexOf(humanChoice);;
-    }
-}
-
 function playGame() {
     // Players scores
     let humanScore = 0;
