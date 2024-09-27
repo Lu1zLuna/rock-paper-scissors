@@ -51,7 +51,7 @@ function playGame() {
     // Plays a single round
     function playRound(humanChoice, computerChoice) {
 
-        const resultsContainer = document.querySelector("#container.results");
+        const resultsContainer = document.querySelector(".container#results");
 
         // Human wins the round
         if (
@@ -80,8 +80,9 @@ function playGame() {
         // In case of a tie, plays a new round
         else if (computerChoice == humanChoice) {
             const tieMessage = document.createElement("p");
-            tieMessage.textContent = "It's a tie! You both chose " + humanChoice + " for this round."
-                + "\nPlay again for a tie-break ;D";
+            tieMessage.textContent = "It's a tie! You both chose " +
+                humanChoice + " for this round." +
+                "\nPlay again for a tie-break ;D";
             resultsContainer.appendChild(tieMessage);
         }
 
@@ -119,15 +120,10 @@ function playGame() {
     }
 
     // Create buttons for player to interact with
-    const containerButton = document.querySelector("#buttons.container");
 
     const rockButton = document.querySelector("#rock");
     const paperButton = document.querySelector("#paper");
     const scissorsButton = document.querySelector("#scissors");
-
-    containerButton.appendChild(rockButton);
-    containerButton.appendChild(paperButton);
-    containerButton.appendChild(scissorsButton);
 
     rockButton.addEventListener("click", function () {
         computerSelection = getComputerChoice();

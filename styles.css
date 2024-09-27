@@ -17,4 +17,13 @@
     padding: 12px;
     justify-content: space-around;
     flex-grow: 1;
+    background-color: antiquewhite;
+}
+
+#rock, #paper, #scissors {
+    padding: 15px 20px;
+    background-color: rgb(43, 250, 215);
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
 }
